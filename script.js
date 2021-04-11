@@ -368,11 +368,14 @@ function Again() {
 function handleEnemies(){
  enemy1.update();
  enemy1.draw();
+ if (score >= 10) {
  enemy2.update();
  enemy2.draw();
+                    }
 }
 const enemy1 = new Enemy();
 const enemy2 = new Enemy2();
+
 const background = new Image();
 background.src='background.png';
 const BG = {
