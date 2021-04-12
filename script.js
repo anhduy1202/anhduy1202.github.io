@@ -379,7 +379,7 @@ function Again() {
     gameover = false;
     score =0;
     location.reload();
-    location.replace('mainmenu.html');
+    location.replace('index.html');
 }
 
 
