@@ -56,7 +56,8 @@ border-radius: 10%;
         height: 250px;
     }
     .restart-btn {
-        font-size: 70%;
+        font-size: 60%;
+        margin-top: 3em;
     }
 }
 @media(max-width: 280px) {
