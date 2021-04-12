@@ -17,7 +17,6 @@ if (screenW < 951) {
     canvas.height = 312.5;
 }
 
-
 let score = 0;
 
 let gameover = false;
@@ -128,6 +127,7 @@ class Player {
 ctx.rotate(this.angle);
         ctx.closePath();
         if (this.x >= mouse.x) {
+            
             ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-40, 0-70,this.spriteWidth/5,this.spriteHeight/5);
            
         } else {
@@ -170,7 +170,7 @@ class Bubble {
         this.sound = Math.random() <= 0.5 ? 'sound1' : 'sound2';
     }
     update() {
-        this.y -= this.speed;
+        this.y -= this.speed; 
      
       
         const dx = this.x - player.x;
@@ -186,7 +186,8 @@ class Bubble {
         //ctx.fill();
         ctx.closePath();
         //ctx.stroke();
-        ctx.drawImage(bubbleImage, this.x-67,this.y-80, this.radius*2.75, this.radius*2.75);
+        if (screenW < 951){ctx.drawImage(bubbleImage, this.x-67,this.y-80, this.radius*2, this.radius*2);}
+        else{ctx.drawImage(bubbleImage, this.x-67,this.y-80, this.radius*2.75, this.radius*2.75);}
     }
 }
 const bubblePop1 = document.createElement('audio');
@@ -258,7 +259,12 @@ draw() {
 //fill with red color
 //ctx.fill();
 //Draw image
-ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-45,this.y-65,this.spriteWidth/2,this.spriteHeight/2);
+
+if (screenW<951){
+    this.radius = 30;
+    ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-45,this.y-65,this.spriteWidth/2.5,this.spriteHeight/2.5);
+}
+else {ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-45,this.y-65,this.spriteWidth/2,this.spriteHeight/2);}
 }
 update() {
     this.x -= this.speed;
@@ -373,6 +379,7 @@ function Again() {
     gameover = false;
     score =0;
     location.reload();
+    location.replace('mainmenu.html');
 }
 
 
