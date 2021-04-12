@@ -2,9 +2,20 @@
 const canvas = document.querySelector('#myCanvas');
 const ctx = canvas.getContext('2d');
 const resetbtn = document.querySelector('.restart-btn');
- canvas.width = 800;
- canvas.height = 500;
+console.log(screen.width);
+let screenW = screen.width;
+let screenH = screen.height;
 
+//1536
+//864
+canvas.width = 800;
+console.log("W:" + canvas.width);
+ canvas.height = 500;
+ console.log("H:" + canvas.height);
+if (screenW < 951) {
+    canvas.width = 500;
+    canvas.height = 312.5;
+}
 
 
 let score = 0;
@@ -332,7 +343,9 @@ end.src = "gameover.wav";
 function GameOver() {
     if (gameover) {
     ctx.fillStyle = 'black';
-    ctx.fillText('GAME OVER! Your Score: ' + score, canvas.width/8,canvas.height/2);
+    ctx.fillText('GAME OVER!Your Score: ' + score, canvas.width/8,canvas.height/2);
+   ctx.font = ""
+    console.log(canvas.width);
     zoom.src= zoom.remove(zoom.src);    
     end.play();
    
@@ -404,7 +417,8 @@ function animate() {
     player.draw();
     handleEnemies();
     ctx.fillStyle= 'black';
-    ctx.font="45px Verdana";
+    ctx.font=  "45px Verdana";
+    if (screenW < 951) {ctx.font = "30px Verdana"};
     ctx.fillText('score:' + score,10,50);
     gameFrame++;
     if (!gameover) requestAnimationFrame(animate);
