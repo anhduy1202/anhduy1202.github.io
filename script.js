@@ -1,17 +1,20 @@
 //Canvas setup
+try {
+   
 const canvas = document.querySelector('#myCanvas');
 const ctx = canvas.getContext('2d');
 const resetbtn = document.querySelector('.restart-btn');
-console.log(screen.width);
+//var element = document.getElementsByTagName("body")[0];
+//element.style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
+
 let screenW = screen.width;
 let screenH = screen.height;
+
 
 //1536
 //864
 canvas.width = 800;
-console.log("W:" + canvas.width);
  canvas.height = 500;
- console.log("H:" + canvas.height);
 if (screenW < 951) {
     canvas.width = 500;
     canvas.height = 312.5;
@@ -26,7 +29,7 @@ if(!gameover) {
 }
 
 //For animation loop
-ctx.font = '50px Georgia';
+ctx.font = "50px Press Start 2P";
 let gameFrame = 0;
 
 //Mouse Interactivity
@@ -48,6 +51,7 @@ canvas.addEventListener('mousemove', (event)=>{
     mouse.click = true;
     mouse.x = event.x - canvasPos.left;
     mouse.y = event.y - canvasPos.top;
+   
     
 });
 canvas.addEventListener('mousedown', (event)=>{
@@ -55,6 +59,7 @@ canvas.addEventListener('mousedown', (event)=>{
     mouse.click = true;
     mouse.x = event.x - canvasPos.left;
     mouse.y = event.y - canvasPos.top;
+   
     
 });
 canvas.addEventListener('mousemove', (event)=>{
@@ -66,9 +71,9 @@ canvas.addEventListener('mouseup', (event)=>{
 //Player
 //Move player to coordinate
 const playerLeft = new Image();
-playerLeft.src= 'rocketman.png';
+playerLeft.src= 'ducky.png';
 const playerRight = new Image();
-playerRight.src= 'rocketman-right.png';
+playerRight.src= 'ducky-right.png';
 class Player {
     constructor() {
         this.x = canvas.width/2;
@@ -78,10 +83,11 @@ class Player {
         this.frameX =0;
         this.frameY =0;
         this.frame = 0;
-        this.speed =12;
+        this.speed =10.5;
+        this.center=0;
         //each sprite dimension
-        this.spriteWidth = 692; // width/column
-        this.spriteHeight = 599; // height/row
+        this.spriteWidth = 640; // width/column
+        this.spriteHeight = 640; // height/row
 
     }
     update() {
@@ -90,13 +96,12 @@ class Player {
         //Quadrant 2: X<400, Y>250
         //Quadrant 3: X<400, Y<250
         //Quadrant 4: X>400, Y250
-        
         const dx = this.x - mouse.x;
         const dy = this.y - mouse.y;
-       
       let theta = Math.atan2(dy,dx);
         this.angle = Math.abs(theta+6.3);
         
+     
         
         //Player can move left and right
         if (mouse.x != this.x) {
@@ -105,8 +110,11 @@ class Player {
         if (mouse.y != this.y) {
             this.y-=dy/this.speed; //Slow down player's speed
         }
-        ;
+        
         PlayerAnimation(this);
+        
+    
+       
     }
        
     draw() {
@@ -117,21 +125,21 @@ class Player {
             //ctx.lineTo(mouse.x, mouse.y);
            // ctx.stroke();
         }
-        //ctx.fillStyle = 'red';
+       //ctx.fillStyle = 'red';
         //ctx.beginPath();
         //ctx.arc(this.x,this.y,this.radius-10,0,Math.PI*2);
         //ctx.fill();
-       // ctx.fillRect(this.x,this.y,this.radius,10);
+        //ctx.fillRect(this.x,this.y,this.radius,10);
         ctx.save();
         ctx.translate(this.x,this.y);
 ctx.rotate(this.angle);
         ctx.closePath();
         if (this.x >= mouse.x) {
             
-            ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-40, 0-70,this.spriteWidth/5,this.spriteHeight/5);
+            ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-40, 0-70,this.spriteWidth/4.4,this.spriteHeight/4.4);
            
         } else {
-                ctx.drawImage(playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-65,0-70,this.spriteWidth/5,this.spriteHeight/5);
+                ctx.drawImage(playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-65,0-70,this.spriteWidth/4.4,this.spriteHeight/4.4);
             
             }
 
@@ -139,9 +147,9 @@ ctx.rotate(this.angle);
         ctx.restore();
     }
     }
-
+   
     function PlayerAnimation(player) {
-        if (gameFrame % 5 ==0){
+        if (gameFrame % 10 ==0){
             player.frame++;
             if (player.frame >= 10) {player.frame =0;}
             if(player.frame == 4 || player.frame == 9) {player.frameX =0;}
@@ -151,6 +159,9 @@ ctx.rotate(this.angle);
             else player.frameY =0;
             }
         }
+    
+   
+
 const player = new Player();
 //Bubbles
 const bubblesArray= [];
@@ -232,15 +243,15 @@ function handleBubbles() {
 
 //Enemies
 const enemyImage = new Image();
-enemyImage.src='enemy (2).png';
+enemyImage.src='rocket-enemy-flipped.png';
 const enemy2Image = new Image();
-enemy2Image.src='enemy-flipped.png';
+enemy2Image.src='rocket-enemy.png';
 
 class Enemy{
 constructor() {
     this.x = canvas.width-800;
     this.y = Math.random() * (canvas.height-380) +380;
-    this.radius = 60;
+    this.radius = 50;
     this.speed = Math.random()*2+7;
   
     //For animation
@@ -248,23 +259,23 @@ constructor() {
     this.frameX =0;
     this.frameY=0;
     this.spriteWidth= 512;
-    this.spriteHeight = 197;
+    this.spriteHeight = 171;
 }
 //Draw red circle to detect collision
 draw() {
 //ctx.fillStyle = "red";
 //Start drawing shape
 //ctx.beginPath();
-//ctx.arc(this.x-10,this.y,this.radius/2,0,Math.PI*2 /*full circle*/);
+//ctx.arc(this.x+30,this.y-15,this.radius/1.5,0,Math.PI*2 /*full circle*/);
 //fill with red color
 //ctx.fill();
 //Draw image
 
 if (screenW<951){
-    this.radius = 30;
-    ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-45,this.y-65,this.spriteWidth/2.5,this.spriteHeight/2.5);
+    this.radius = 25;
+    ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-90,this.y-65,this.spriteWidth/1.8,this.spriteHeight/1.8);
 }
-else {ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-45,this.y-65,this.spriteWidth/2,this.spriteHeight/2);}
+else {ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-90,this.y-65,this.spriteWidth/1.8,this.spriteHeight/1.8);}
 }
 update() {
     this.x -= this.speed;
@@ -284,8 +295,7 @@ update() {
     
 }
 }
-function Animation(enemy) {
-    if (gameFrame % 6 ==0){
+/*if (gameFrame % 5 ==0){
         enemy.frame++;
         if (enemy.frame >= 6) {enemy.frame =0;}
         if(enemy.frame == 2 || enemy.frame == 5) {enemy.frameX =0;}
@@ -293,6 +303,15 @@ function Animation(enemy) {
         if (enemy.frame < 2) enemy.frameY=0;
         else if (enemy.frame < 5) enemy.frameY = 1;
         else enemy.frameY =0;
+        }*/
+function Animation(enemy) {
+    if (gameFrame % 7 ==0){
+        enemy.frame++;
+        if (enemy.frame >= 3) {enemy.frame =0;}
+        if(enemy.frame == 2) {enemy.frameX =0;}
+        else {enemy.frameX++;}
+        if (enemy.frame < 2) enemy.frameY=1;
+        else enemy.frameY =1;
         }
     }
     function Collide(enemy) {
@@ -301,8 +320,9 @@ function Animation(enemy) {
      const dy = enemy.y - player.y;
      const distance = Math.sqrt(dx*dx+dy*dy);
     
+    
      //If collide
-if (distance < (enemy.radius + player.radius)/1.7) {
+if (distance < (enemy.radius + player.radius)/2) {
     console.log("COLLIDE");
     gameover = true;
     GameOver();
@@ -320,10 +340,10 @@ draw() {
     //ctx.fillStyle = "red";
 //Start drawing shape
 //ctx.beginPath();
-//ctx.arc(this.x+120,this.y,this.radius/2,0,Math.PI*2 /*full circle*/);
+//ctx.arc(this.x+50,this.y-20,this.radius/1.3,0,Math.PI*2 /*full circle*/);
 //fill with red color
-//ctx.fill();
-    ctx.drawImage(enemy2Image,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-170,this.y-75,this.spriteWidth/2,this.spriteHeight/2);
+//sctx.fill();
+    ctx.drawImage(enemy2Image,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-170,this.y-75,this.spriteWidth/1.8,this.spriteHeight/1.8);
 
 }
 update() {
@@ -349,8 +369,8 @@ end.src = "gameover.wav";
 function GameOver() {
     if (gameover) {
     ctx.fillStyle = 'black';
-    ctx.fillText('GAME OVER!Your Score: ' + score, canvas.width/8,canvas.height/2);
-   ctx.font = ""
+    ctx.fillText('GAME OVER! Your Score: '+ score, canvas.width/9.5,canvas.height/2);
+   ctx.font = "40px Orbitron";
     console.log(canvas.width);
     zoom.src= zoom.remove(zoom.src);    
     end.play();
@@ -424,9 +444,9 @@ function animate() {
     player.draw();
     handleEnemies();
     ctx.fillStyle= 'black';
-    ctx.font=  "45px Verdana";
-    if (screenW < 951) {ctx.font = "30px Verdana"};
-    ctx.fillText('score:' + score,10,50);
+    ctx.font=  "45px Orbitron";
+    if (screenW < 951) {ctx.font = "30px Orbitron"};
+    ctx.fillText('score: ' + score,10,50);
     gameFrame++;
     if (!gameover) requestAnimationFrame(animate);
     else {const reset = new Restart();
@@ -445,3 +465,7 @@ animate();
 window.addEventListener('resize', ()=>{
 canvasPos = canvas.getBoundingClientRect();
 })
+}
+catch(err) {
+    location.reload();
+}
