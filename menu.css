@@ -31,7 +31,7 @@ body {
     background-size: contain;
     width: 960px;
     height: 600px;
-    border: 4px solid black;
+    border: 3.5px solid black;
 }
 .instruction {
     font-family: 'Press Start 2P', cursive;

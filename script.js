@@ -467,5 +467,5 @@ canvasPos = canvas.getBoundingClientRect();
 })
 }
 catch(err) {
-    location.reload();
+    console.log(err);
 }
