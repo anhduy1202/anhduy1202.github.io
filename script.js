@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 const resetbtn = document.querySelector('.restart-btn');
 //var element = document.getElementsByTagName("body")[0];
 //element.style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
-//No try catch
+
 let screenW = screen.width;
 let screenH = screen.height;
 
@@ -133,12 +133,17 @@ class Player {
 ctx.rotate(this.angle);
         ctx.closePath();
         if (this.x >= mouse.x) {
-            
-            ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-40, 0-70,this.spriteWidth/4.4,this.spriteHeight/4.4);
+            if (screenW < 951) {
+                ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-40, 0-70,this.spriteWidth/6,this.spriteHeight/6);
+               }
+            else {ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-40, 0-70,this.spriteWidth/4.4,this.spriteHeight/4.4);}
            
         } else {
-                ctx.drawImage(playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-65,0-70,this.spriteWidth/4.4,this.spriteHeight/4.4);
-            
+               
+            if (screenW < 951) {
+                ctx.drawImage(playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-65,0-70,this.spriteWidth/6,this.spriteHeight/6);
+            }
+            else { ctx.drawImage(playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-65,0-70,this.spriteWidth/4.4,this.spriteHeight/4.4);}
             }
 
         
@@ -271,7 +276,7 @@ draw() {
 
 if (screenW<951){
     this.radius = 25;
-    ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-90,this.y-65,this.spriteWidth/1.8,this.spriteHeight/1.8);
+    ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-90,this.y-65,this.spriteWidth/2.4,this.spriteHeight/2.4);
 }
 else {ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-90,this.y-65,this.spriteWidth/1.8,this.spriteHeight/1.8);}
 }
@@ -341,7 +346,11 @@ draw() {
 //ctx.arc(this.x+50,this.y-20,this.radius/1.3,0,Math.PI*2 /*full circle*/);
 //fill with red color
 //sctx.fill();
-    ctx.drawImage(enemy2Image,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-170,this.y-75,this.spriteWidth/1.8,this.spriteHeight/1.8);
+if (screenW<951){
+    this.radius = 25;
+    ctx.drawImage(enemy2Image,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-170,this.y-75,this.spriteWidth/2.4,this.spriteHeight/2.4);
+}
+    else {ctx.drawImage(enemy2Image,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-170,this.y-75,this.spriteWidth/1.8,this.spriteHeight/1.8);}
 
 }
 update() {
