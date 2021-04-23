@@ -1,12 +1,10 @@
-//Canvas setup
-try {
-   
+//Canvas setup   
 const canvas = document.querySelector('#myCanvas');
 const ctx = canvas.getContext('2d');
 const resetbtn = document.querySelector('.restart-btn');
 //var element = document.getElementsByTagName("body")[0];
 //element.style.cursor = "url('http://wiki-devel.sugarlabs.org/images/e/e2/Arrow.cur'), auto";
-
+//No try catch
 let screenW = screen.width;
 let screenH = screen.height;
 
@@ -465,7 +463,4 @@ animate();
 window.addEventListener('resize', ()=>{
 canvasPos = canvas.getBoundingClientRect();
 })
-}
-catch(err) {
-    console.log(err);
-}
+
