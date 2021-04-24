@@ -143,6 +143,7 @@ border-radius: 10%;
 /*MOBILE FRIENDLY*/
 @media(max-width:586px) {
     #myCanvas{
+        position: absolute;
         width: 400px;
         height: 250px;
     }
@@ -152,6 +153,31 @@ border-radius: 10%;
     }
     .instruction {
         font-size: 40%;
+    }
+    .label {
+        position: absolute;
+     margin-bottom: 20em;
+       transform:scale(1.1);
+      
+    }
+    #box-container {
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media only screen and (min-width:600px) and (max-width:1024px) {
+    #myCanvas{
+        position: absolute;
+    }
+    .label {
+        position: absolute;
+     margin-bottom: 43em;
+     transform: scale(1.5);
+      
+    }
+    #box-container {
+        justify-content: center;
+        align-items: center;
     }
 }
 @media(max-width: 280px) {
