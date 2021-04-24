@@ -8,6 +8,11 @@ const resetbtn = document.querySelector('.restart-btn');
 let screenW = screen.width;
 let screenH = screen.height;
 
+//dark theme toggle
+if (toggle) {
+    document.body.classList.toggle('dark');
+    ball.classList.toggle('move');
+}
 
 //1536
 //864
@@ -27,7 +32,6 @@ if(!gameover) {
 }
 
 //For animation loop
-ctx.font = "50px Press Start 2P";
 let gameFrame = 0;
 
 //Mouse Interactivity
@@ -134,6 +138,7 @@ ctx.rotate(this.angle);
         ctx.closePath();
         if (this.x >= mouse.x) {
             if (screenW < 951) {
+                this.speed = 11;
                 ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-40, 0-70,this.spriteWidth/6,this.spriteHeight/6);
                }
             else {ctx.drawImage(playerLeft, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-40, 0-70,this.spriteWidth/4.4,this.spriteHeight/4.4);}
@@ -141,6 +146,7 @@ ctx.rotate(this.angle);
         } else {
                
             if (screenW < 951) {
+                this.speed = 11;
                 ctx.drawImage(playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-65,0-70,this.spriteWidth/6,this.spriteHeight/6);
             }
             else { ctx.drawImage(playerRight, this.frameX * this.spriteWidth, this.frameY * this.spriteHeight, this.spriteWidth,this.spriteHeight, 0-65,0-70,this.spriteWidth/4.4,this.spriteHeight/4.4);}
@@ -266,19 +272,27 @@ constructor() {
 }
 //Draw red circle to detect collision
 draw() {
-//ctx.fillStyle = "red";
+
+
+if (screenW<951){
+    this.radius = 45;
+    //ctx.fillStyle = "red";
 //Start drawing shape
 //ctx.beginPath();
-//ctx.arc(this.x+30,this.y-15,this.radius/1.5,0,Math.PI*2 /*full circle*/);
+//ctx.arc(this.x,this.y-25,this.radius/1.5,0,Math.PI*2 /*full circle*/);
+//fill with red color
+//ctx.fill();
+    ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-90,this.y-65,this.spriteWidth/2.4,this.spriteHeight/2.4);
+}
+else {
+    //ctx.fillStyle = "red";
+//Start drawing shape
+//ctx.beginPath();
+//ctx.arc(this.x+30,this.y-15,this.radius,0,Math.PI*2 /*full circle*/);
 //fill with red color
 //ctx.fill();
 //Draw image
-
-if (screenW<951){
-    this.radius = 25;
-    ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-90,this.y-65,this.spriteWidth/2.4,this.spriteHeight/2.4);
-}
-else {ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-90,this.y-65,this.spriteWidth/1.8,this.spriteHeight/1.8);}
+    ctx.drawImage(enemyImage,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-90,this.y-65,this.spriteWidth/1.8,this.spriteHeight/1.8);}
 }
 update() {
     this.x -= this.speed;
@@ -340,17 +354,25 @@ class Enemy2 extends Enemy {
     
 }
 draw() {
-    //ctx.fillStyle = "red";
-//Start drawing shape
-//ctx.beginPath();
-//ctx.arc(this.x+50,this.y-20,this.radius/1.3,0,Math.PI*2 /*full circle*/);
-//fill with red color
-//sctx.fill();
+   
 if (screenW<951){
-    this.radius = 25;
+    this.radius = 45;
+    ctx.fillStyle = "red";
+    //Start drawing shape
+    ctx.beginPath();
+    //ctx.arc(this.x-60,this.y-40,this.radius/1.5,0,Math.PI*2 /*full circle*/);
+    //fill with red color
+    //ctx.fill();
     ctx.drawImage(enemy2Image,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-170,this.y-75,this.spriteWidth/2.4,this.spriteHeight/2.4);
 }
-    else {ctx.drawImage(enemy2Image,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-170,this.y-75,this.spriteWidth/1.8,this.spriteHeight/1.8);}
+    else {
+       // ctx.fillStyle = "red";
+        //Start drawing shape
+        //ctx.beginPath();
+        //ctx.arc(this.x,this.y-20,this.radius,0,Math.PI*2 /*full circle*/);
+        //fill with red color
+        //ctx.fill();
+        ctx.drawImage(enemy2Image,this.frameX*this.spriteWidth,this.frameY*this.spriteHeight,this.spriteWidth,this.spriteHeight,this.x-170,this.y-75,this.spriteWidth/1.8,this.spriteHeight/1.8);}
 
 }
 update() {
@@ -377,8 +399,6 @@ function GameOver() {
     if (gameover) {
     ctx.fillStyle = 'black';
     ctx.fillText('GAME OVER! Your Score: '+ score, canvas.width/9.5,canvas.height/2);
-   ctx.font = "40px Orbitron";
-    console.log(canvas.width);
     zoom.src= zoom.remove(zoom.src);    
     end.play();
    
@@ -418,7 +438,7 @@ function handleEnemies(){
  if (score >= 10) {
  enemy2.update();
  enemy2.draw();
-                    }
+                 }
 }
 const enemy1 = new Enemy();
 const enemy2 = new Enemy2();
@@ -451,8 +471,9 @@ function animate() {
     player.draw();
     handleEnemies();
     ctx.fillStyle= 'black';
-    ctx.font=  "45px Orbitron";
-    if (screenW < 951) {ctx.font = "30px Orbitron"};
+   
+    if (screenW < 951) {ctx.font = "25px Orbitron";}
+    else { ctx.font=  "45px Orbitron";}
     ctx.fillText('score: ' + score,10,50);
     gameFrame++;
     if (!gameover) requestAnimationFrame(animate);
