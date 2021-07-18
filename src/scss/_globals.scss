@@ -1,0 +1,54 @@
+@import "variables";
+
+html {
+    height: 100vh;
+    font-size: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+background-image: url('../images/webb.png');
+height:100vh;
+padding:0;
+margin:0;
+font-size: $font-md;
+
+
+
+
+}
+
+body > div {
+overflow-x: hidden;
+}
+.flex {
+    display:flex;
+    &-jc-c {
+        justify-content: center;
+    }
+    &-ai-c {
+        align-items: center;
+    }
+    &-ai-fe {
+        align-items: flex-end;
+    }
+    &-ai-fs {
+        align-items: flex-start;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline:none;
+}
+
+button {
+    border:none;
+    
+}

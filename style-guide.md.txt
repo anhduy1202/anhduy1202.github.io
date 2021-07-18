@@ -1,0 +1,30 @@
+
+//Navbar
+
+DarkBlue: 35A4D3
+
+
+//View webstie + detail
+
+DarkRed: F87060
+
+
+// Font
+
+font-family: Poppins
+
+font-weight: 400,800
+, Lora
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Poppins:wght@400;800&display=swap" rel="stylesheet">
+
+font-weight: 400,600
+
+font-family: 'Lora', serif;
+font-family: 'Poppins', sans-serif;
+
+font-size: 6,9,11,14,17,25
+
+
+I’m Daniel Truong, a Computer Science sophomore whose goals are to become a full-stack developer, build pratical web and mobile applications.

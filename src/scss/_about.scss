@@ -1,0 +1,102 @@
+@import "variables";
+@import "mixins";
+.aboutContainer {
+   
+   
+    background-color: $lightGrey;
+    flex-direction: column;
+    border-radius: 30px;
+  margin: 7.125rem 1.625rem 0rem 1.625rem;
+      //filter: drop-shadow(3px 4px 9px rgba(0, 0, 0, 0.25));
+   @include breakpoint-up(large) {
+    border-radius: 20px;
+    display: grid;
+   grid-template-columns: 0.5fr 1fr;
+   grid-template-rows: 1fr 2.5fr 1fr;
+   grid-template-areas: 
+   "ava content content languages"
+   "ava content content languages"
+   "hello content content languages";
+   margin: 7.125rem 9rem 0rem 8rem;
+   
+
+   }
+ &-avatar {
+   transform: translateY(-50%);
+  border-radius: 50%;
+
+  @include breakpoint-up(large) {
+      transform: scale(1.3);
+   justify-self: center; 
+  grid-area: ava; 
+  }
+ }  
+ &-hello {
+     position: relative;
+     font-family: $lora;
+     font-size: $font-mdlg;
+     font-weight: 500;
+     transform: translateY(-100%);
+     @include breakpoint-up(large) { 
+        
+         font-size: $font-lg;
+     }
+    
+     
+ }
+&-bio {
+    margin-bottom: -2.125rem;
+   grid-area: hello;
+  
+   @include breakpoint-up(large) { 
+    justify-self: center;
+        transform: translateY(-50%); 
+     max-width: 23%;
+        }
+        
+}
+ &-swoosh {
+    position: absolute;
+bottom: -4px;
+transform: scale(1.4);
+left: 0;
+
+@include breakpoint-up(large) { 
+    transform: scale(1.5);
+}
+    }
+&-content {
+    font-family: $lora;
+    font-size: $font-sm;
+    line-height: 1.81875rem;
+    max-width:65%;
+  grid-area:content;
+  
+  @include breakpoint-up(large) {
+    max-width:74%;
+    justify-self: flex-start;
+      font-size: $font-md;
+      line-height: 2.61875rem;
+   }
+
+  
+}
+    
+&-languages {
+    transform: scale(1.4);
+    padding: 1.5rem 1.125rem 1.5rem 1.125rem ;
+    @include breakpoint-up(large) { 
+        transform: scale(1.6);
+    }
+}
+
+}
+
+
+.sub {
+    @include breakpoint-up(large) {
+    grid-area: languages;
+    flex-wrap: wrap;
+    max-width: 50%;
+    }
+}
