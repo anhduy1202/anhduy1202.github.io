@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixins";
+
+.footer {
+    width: 100vw;
+    background-color:$lightGrey;
+    
+    font-family: $poppins;
+    font-size: $font-desktop-md;
+    padding: 0.5rem;
+    font-weight: 600;
+    justify-content: flex-end;
+    @include breakpoint-up(large) {
+        font-size: $font-desktop-mdlg;
+        padding: 1.5rem;
+        justify-content: center;
+        
+    }
+}
+
+.goToTop {
+cursor: pointer;
+&:hover {
+    opacity: 0.5;
+}
+    img {
+        cursor: pointer;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+}

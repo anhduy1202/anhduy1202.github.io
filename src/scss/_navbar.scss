@@ -5,6 +5,10 @@
    font-size: $font-md;
    font-family: $poppins;
    margin: 0rem 1.625rem 0rem 1.625rem;
+
+   ul {
+     list-style: none;
+   }
     p {
         
         color: $darkBlue;
@@ -14,6 +18,7 @@
     }
     a {
         color:black;
+        margin-right: 3rem;
     }
    
    justify-content: space-between;

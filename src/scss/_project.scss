@@ -2,7 +2,7 @@
 @import "mixins";
 .projectContainer {
     
-    margin-top: 5.0625rem;
+    margin-top: 7.0625rem;
     flex-direction: column;
     flex-wrap: wrap;
     img {
@@ -14,7 +14,7 @@
         font-family: $lora;
         font-weight: 500;
         @include breakpoint-up(large) { 
-        
+       
            font-size: $font-lg;
          }
        
@@ -167,6 +167,7 @@ img {
 
     &:hover {
         background-color: #EBEBEB;
+        font-weight: 600;
     }
 }
 

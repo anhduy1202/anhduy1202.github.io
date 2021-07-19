@@ -2,11 +2,11 @@
 import avatar from './images/avatar.jpg';
 import swooshYellow from './images/swoosh yellow-mobile.svg';
 const About = (props) => {
-    const {languages} = props;
+    const {languages,aos} = props;
     return (
-         <div className="aboutContainer flex flex-ai-c flex-jc-c">
+         <div  data-aos="zoom-out" className="aboutContainer flex flex-ai-c flex-jc-c">
                 
-        <img className="aboutContainer-avatar" src={avatar} alt="Profile picture" />
+        <img id="about" className="aboutContainer-avatar" src={avatar} alt="Profile picture" />
        <div className="aboutContainer-bio">
            <p className="aboutContainer-hello"> Hello,
             <img className="aboutContainer-swoosh" src={swooshYellow} alt="" />

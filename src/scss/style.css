@@ -72,6 +72,10 @@ button {
           justify-content: space-between;
 }
 
+.navContainer ul {
+  list-style: none;
+}
+
 .navContainer p {
   color: #35A4D3;
   font-weight: 800;
@@ -80,6 +84,7 @@ button {
 
 .navContainer a {
   color: black;
+  margin-right: 3rem;
 }
 
 @media (min-width: 64em) {
@@ -195,7 +200,7 @@ button {
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 30px;
-  margin: 7.125rem 1.625rem 0rem 1.625rem;
+  margin: 9.125rem 1.625rem 0rem 1.625rem;
 }
 
 @media (min-width: 64em) {
@@ -313,7 +318,7 @@ button {
 }
 
 .projectContainer {
-  margin-top: 5.0625rem;
+  margin-top: 7.0625rem;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -510,5 +515,179 @@ button {
 
 .loadMore:hover, .loadLess:hover {
   background-color: #EBEBEB;
+  font-weight: 600;
+}
+
+.loading-wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.thecube {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto;
+  margin-top: 50px;
+  position: relative;
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+
+.thecube .cube {
+  position: relative;
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+
+.thecube .cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.thecube .cube:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #35A4D3;
+  -webkit-animation: foldthecube 2.4s infinite linear both;
+  animation: foldthecube 2.4s infinite linear both;
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+
+.thecube .c2 {
+  -webkit-transform: scale(1.1) rotateZ(90deg);
+  transform: scale(1.1) rotateZ(90deg);
+}
+
+.thecube .c3 {
+  -webkit-transform: scale(1.1) rotateZ(180deg);
+  transform: scale(1.1) rotateZ(180deg);
+}
+
+.thecube .c4 {
+  -webkit-transform: scale(1.1) rotateZ(270deg);
+  transform: scale(1.1) rotateZ(270deg);
+}
+
+.thecube .c2:before {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.thecube .c3:before {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.thecube .c4:before {
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+
+@-webkit-keyframes foldthecube {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  }
+  90%,
+  100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes foldthecube {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  }
+  90%,
+  100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+.text {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 2rem;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5025rem;
+  font-size: 600;
+}
+
+h2 {
+  font-family: "Lora", serif;
+  font-size: 1.7625rem;
+}
+
+.footer {
+  width: 100vw;
+  background-color: #EBEBEB;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1625rem;
+  padding: 0.5rem;
+  font-weight: 600;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+@media (min-width: 64em) {
+  .footer {
+    font-size: 1.5625rem;
+    padding: 1.5rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.goToTop {
+  cursor: pointer;
+}
+
+.goToTop:hover {
+  opacity: 0.5;
+}
+
+.goToTop img {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 /*# sourceMappingURL=style.css.map */

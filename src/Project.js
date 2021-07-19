@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import swooshRed from './images/swoosh-red-mobile.svg';
-import axios from 'axios';
-
 
 
 const Project = (props) => {
@@ -21,9 +19,9 @@ setProjectsNum( projectsNum + projectsNum);
   
    const slice = list.slice(0,projectsNum); //Load more 
     return (  
-        <div className="projectContainer flex flex-ai-c ">
+        <div  className="projectContainer flex flex-ai-c ">
             <div className="projectContainer-name">
-            <p className="projectContainer-title"> Projects</p>
+            <p id="projects" className="projectContainer-title"> Projects</p>
            <img className="projectContainer-img" src={swooshRed} alt="red swoosh" />
            </div>
             

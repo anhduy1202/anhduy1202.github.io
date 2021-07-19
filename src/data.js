@@ -51,7 +51,7 @@ export const socialList = [
         social:  "Gmail",
         id:"e",   
         image: gmailIcon,
-        link: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=aduy1122@gmail.com"
+        link: "mailto:aduy1122@gmail?subject=Contact%20"
        
      },
       
