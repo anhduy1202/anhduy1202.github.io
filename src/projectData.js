@@ -1,7 +1,6 @@
-import justListIt from './images/job-filter.jpg';
-import faqCard from './images/faq.jpg';
 import Rocketto from './images/rocketto.jpg';
 import betterttt from './images/betterttt.jpg';
+import gitreadme from './images/gitreadme.jpg';
 import splitTip from './images/tipsplit.jpg';
 import dictionary from './images/dictionary.jpg';
 import jsIcon from './icon/js-icon-mobile.svg';
@@ -25,22 +24,22 @@ export const projects = [
     },
     {
         id: 2,
+        name: "Git Readme",
+        image: gitreadme,
+        languages: [reactIcon, htmlIcon, sassIcon, jsIcon],
+        type: "frontend",
+        content: "A website that helps you customize Github Readme easier by copy-pasting existing code",
+        link: "https://gitreadme.netlify.app/"
+
+    },
+    {
+        id: 3,
         name: "Your Dictionary",
         image: dictionary,
         languages: [reactIcon, htmlIcon, cssIcon, jsIcon],
         type: "frontend",
         content: "A dictionary web app that users can search words in 12 languages with dark mode included !!!",
         link: "https://your-dictionary.netlify.app/"
-
-    },
-    {
-        id: 3,
-        name: "Just List It",
-        image: justListIt,
-        languages: [reactIcon, htmlIcon, sassIcon, jsIcon],
-        type: "frontend",
-        content: "A job listing website that ultizing the filter method to view the tags for the specific roles, languages, position,...",
-        link: "https://job-filtering.netlify.app/"
 
     },
     {
@@ -51,19 +50,9 @@ export const projects = [
         type: "frontend",
         content: "A tip splitting app that you can use to calculate your bill total and tips with your friends",
         link: "https://splityourtip.netlify.app"
-    },
+    },  
     {
         id: 5,
-        name: "FAQ Card",
-        image: faqCard,
-        languages: [htmlIcon, sassIcon, jsIcon],
-        type: "frontend",
-        content: "A simple frequently asked questions card that will automatically close if another question is clicked.",
-        link: "https://faq-accordion-form.netlify.app/"
-
-    },
-    {
-        id: 6,
         name: "Rocketto",
         image: Rocketto,
         languages: [htmlIcon, jsIcon],
