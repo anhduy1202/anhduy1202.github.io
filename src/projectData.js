@@ -40,7 +40,7 @@ export const projects = [
         languages: [reactIcon, htmlIcon, sassIcon, jsIcon],
         type: "frontend",
         content: "A website that helps you customize Github Readme easier by copy-pasting existing code",
-        link: "https://gitreadme.netlify.app/"
+        link: "https://gitmee.netlify.app/"
 
     },
     {
