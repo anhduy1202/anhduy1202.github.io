@@ -3,6 +3,7 @@ import betterttt from './images/betterttt.jpg';
 import gitreadme from './images/gitreadme.jpg';
 import splitTip from './images/tipsplit.jpg';
 import dictionary from './images/dictionary.jpg';
+import leetbot from './images/leetbot.jpg';
 import jsIcon from './icon/js-icon-mobile.svg';
 import reactIcon from './icon/React-icon-mobile.svg';
 import htmlIcon from './icon/html-icon-mobile.svg';
@@ -10,6 +11,7 @@ import cssIcon from './icon/css-icon-mobile.svg';
 import sassIcon from './icon/sass-icon-mobile.svg';
 import firebaseIcon from './icon/firebase.svg';
 import socketioIcon from './icon/socketio.svg';
+import nodeJS from './icon/nodejs.png';
 
 export const projects = [
 
@@ -24,6 +26,15 @@ export const projects = [
     },
     {
         id: 2,
+        name: "LeetBot",
+        image: leetbot,
+        languages: [nodeJS],
+        type: "fullstack",
+        content: "A Discord bot that send Leetcode questions by custom commands from users including difficulty + popularity ",
+        link: "https://github.com/anhduy1202/LeetBot"
+    },
+    {
+        id: 3,
         name: "Git Readme",
         image: gitreadme,
         languages: [reactIcon, htmlIcon, sassIcon, jsIcon],
@@ -33,7 +44,7 @@ export const projects = [
 
     },
     {
-        id: 3,
+        id: 4,
         name: "Your Dictionary",
         image: dictionary,
         languages: [reactIcon, htmlIcon, cssIcon, jsIcon],
@@ -43,7 +54,7 @@ export const projects = [
 
     },
     {
-        id: 4,
+        id: 5,
         name: "Split Your Tip",
         image: splitTip,
         languages:  [reactIcon, htmlIcon, sassIcon, jsIcon],
@@ -52,7 +63,7 @@ export const projects = [
         link: "https://splityourtip.netlify.app"
     },  
     {
-        id: 5,
+        id: 6,
         name: "Rocketto",
         image: Rocketto,
         languages: [htmlIcon, jsIcon],
