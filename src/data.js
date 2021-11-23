@@ -8,7 +8,10 @@ import reactIcon from './icon/React-icon-mobile.svg';
 import htmlIcon from './icon/html-icon-mobile.svg';
 import cssIcon from './icon/css-icon-mobile.svg';
 import sassIcon from './icon/sass-icon-mobile.svg';
-
+import goIcon from './icon/golang.svg';
+import nodeJsIcon from './icon/nodejs.png';
+import cppIcon from './icon/cpp.svg';
+import mongoDBIcon from './icon/mongodb.svg';
 
 export const socialList = [
  
@@ -60,5 +63,5 @@ export const socialList = [
 
 ];
 
-export const languages = [jsIcon,reactIcon,htmlIcon,cssIcon,sassIcon];
+export const languages = [jsIcon,reactIcon,htmlIcon,cssIcon,sassIcon,nodeJsIcon,goIcon,cppIcon,mongoDBIcon];
 

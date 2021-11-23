@@ -12,6 +12,8 @@ import sassIcon from './icon/sass-icon-mobile.svg';
 import firebaseIcon from './icon/firebase.svg';
 import socketioIcon from './icon/socketio.svg';
 import nodeJS from './icon/nodejs.png';
+import fixIt from './images/fix-it-screenshot.png';
+
 
 export const projects = [
 
@@ -20,7 +22,7 @@ export const projects = [
         name: "Better Tic Tac Toe",
         image: betterttt,
         languages: [reactIcon, sassIcon, firebaseIcon, socketioIcon, jsIcon],
-        type: "fullstack",
+        type: "web",
         content: "A multiplayer online tic-tac-toe game that user can create rooms, join rooms through ID, find & join other rooms in real-time ",
         link: "https://betterttt.com/"
     },
@@ -29,45 +31,54 @@ export const projects = [
         name: "LeetBot",
         image: leetbot,
         languages: [nodeJS],
-        type: "fullstack",
+        type: "bot",
         content: "A Discord bot that send Leetcode questions by custom commands from users including difficulty + popularity ",
         link: "https://github.com/anhduy1202/LeetBot"
     },
     {
         id: 3,
+        name: "Fix-It-Dude",
+        image: fixIt,
+        languages: [jsIcon],
+        type: "game",
+        content: "Game submission for FallTy 24hrs Game Jam hosted by CSUF Video Game Dev Club, built with Kaboom.js",
+        link: "https://fix-it-dude.anhduy1202.repl.co/?fbclid=IwAR2_OqVfX-9EZlsNwOPjc8baC-VvDB162JR0vt6D3CWjLXxn-i3pRX95bIM"
+    },
+    {
+        id: 4,
         name: "Git Readme",
         image: gitreadme,
         languages: [reactIcon, htmlIcon, sassIcon, jsIcon],
-        type: "frontend",
+        type: "web",
         content: "A website that helps you customize Github Readme easier by copy-pasting existing code",
         link: "https://gitmee.netlify.app/"
 
     },
     {
-        id: 4,
+        id: 5,
         name: "Your Dictionary",
         image: dictionary,
         languages: [reactIcon, htmlIcon, cssIcon, jsIcon],
-        type: "frontend",
+        type: "web",
         content: "A dictionary web app that users can search words in 12 languages with dark mode included !!!",
         link: "https://your-dictionary.netlify.app/"
 
     },
     {
-        id: 5,
+        id: 6,
         name: "Split Your Tip",
         image: splitTip,
         languages:  [reactIcon, htmlIcon, sassIcon, jsIcon],
-        type: "frontend",
+        type: "web",
         content: "A tip splitting app that you can use to calculate your bill total and tips with your friends",
         link: "https://splityourtip.netlify.app"
     },  
     {
-        id: 6,
+        id: 7,
         name: "Rocketto",
         image: Rocketto,
         languages: [htmlIcon, jsIcon],
-        type: "frontend",
+        type: "game",
         content: "A funny game that is built entirely with vanilla Javascript with menu, scores, gameover,...",
         link: "https://rocketto.netlify.app"
 
