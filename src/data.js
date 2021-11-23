@@ -63,5 +63,5 @@ export const socialList = [
 
 ];
 
-export const languages = [jsIcon,reactIcon,htmlIcon,cssIcon,sassIcon,nodeJsIcon,goIcon,cppIcon,mongoDBIcon];
+export const languages = [jsIcon,reactIcon,htmlIcon,cssIcon,sassIcon,nodeJsIcon,cppIcon,mongoDBIcon];
 
