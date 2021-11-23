@@ -7,7 +7,7 @@ const Landing = (props) => {
     return (
         <main className="topContainer flex">
             <figure className="topContainer-title flex flex-ai-fe">
-                <p> Front-End Developer </p>
+                <p> Software Developer </p>
                 <img className="topContainer-coding" src={coding} alt="" />
                 <img className="topContainer-swoosh" src={swooshBlue} alt="" />
 
