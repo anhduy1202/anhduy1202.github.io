@@ -94,6 +94,8 @@ left: 0;
 
 
 .sub {
+    flex-wrap: wrap;
+    justify-content: center;
     @include breakpoint-up(large) {
     grid-area: languages;
     flex-wrap: wrap;

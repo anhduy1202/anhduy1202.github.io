@@ -76,7 +76,7 @@ button {
   list-style: none;
 }
 
-.navContainer p {
+.navContainer header {
   color: #35A4D3;
   font-weight: 800;
   padding-right: 0.225rem;
@@ -306,6 +306,14 @@ button {
     -webkit-transform: scale(1.6);
             transform: scale(1.6);
   }
+}
+
+.sub {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media (min-width: 64em) {
