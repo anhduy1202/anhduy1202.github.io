@@ -1,8 +1,9 @@
 import Rocketto from './images/rocketto.jpg';
 import betterttt from './images/betterttt.jpg';
 import gitreadme from './images/gitreadme.jpg';
-import splitTip from './images/tipsplit.jpg';
 import dictionary from './images/dictionary.jpg';
+import reddat from './images/reddat-desktop.jpg';
+import fixIt from './images/fix-it-screenshot.png';
 import leetbot from './images/leetbot.jpg';
 import jsIcon from './icon/js-icon-mobile.svg';
 import reactIcon from './icon/React-icon-mobile.svg';
@@ -12,13 +13,24 @@ import sassIcon from './icon/sass-icon-mobile.svg';
 import firebaseIcon from './icon/firebase.svg';
 import socketioIcon from './icon/socketio.svg';
 import nodeJS from './icon/nodejs.png';
-import fixIt from './images/fix-it-screenshot.png';
+import nodeJsIcon from './icon/nodejs.png';
+import mongoDBIcon from './icon/mongodb.svg';
+
 
 
 export const projects = [
 
     {
         id: 1,
+        name: "Reddat",
+        image: reddat,
+        languages: [reactIcon, nodeJsIcon, mongoDBIcon, socketioIcon],
+        type: "fullstack",
+        content: "A social media mobile web app that based on Reddit UI with chat, follow, upvote, comment features",
+        link: "https://reddat.vercel.app/landingpage"
+    },
+    {
+        id: 2,
         name: "Better Tic Tac Toe",
         image: betterttt,
         languages: [reactIcon, sassIcon, firebaseIcon, socketioIcon, jsIcon],
@@ -27,7 +39,7 @@ export const projects = [
         link: "https://betterttt.com/"
     },
     {
-        id: 2,
+        id: 3,
         name: "LeetBot",
         image: leetbot,
         languages: [nodeJS],
@@ -36,16 +48,16 @@ export const projects = [
         link: "https://github.com/anhduy1202/LeetBot"
     },
     {
-        id: 3,
+        id: 4,
         name: "Fix-It-Dude",
         image: fixIt,
         languages: [jsIcon],
         type: "game",
         content: "Game submission for FallTy 24hrs Game Jam hosted by CSUF Video Game Dev Club, built with Kaboom.js",
-        link: "https://fix-it-dude.anhduy1202.repl.co/?fbclid=IwAR2_OqVfX-9EZlsNwOPjc8baC-VvDB162JR0vt6D3CWjLXxn-i3pRX95bIM"
+        link: "https://replit.com/@anhduy1202/Fix-it-Dude"
     },
     {
-        id: 4,
+        id: 5,
         name: "Git Readme",
         image: gitreadme,
         languages: [reactIcon, htmlIcon, sassIcon, jsIcon],
@@ -55,7 +67,7 @@ export const projects = [
 
     },
     {
-        id: 5,
+        id: 6,
         name: "Your Dictionary",
         image: dictionary,
         languages: [reactIcon, htmlIcon, cssIcon, jsIcon],
@@ -65,15 +77,6 @@ export const projects = [
 
     },
     {
-        id: 6,
-        name: "Split Your Tip",
-        image: splitTip,
-        languages:  [reactIcon, htmlIcon, sassIcon, jsIcon],
-        type: "web",
-        content: "A tip splitting app that you can use to calculate your bill total and tips with your friends",
-        link: "https://splityourtip.netlify.app"
-    },  
-    {
         id: 7,
         name: "Rocketto",
         image: Rocketto,
@@ -81,8 +84,6 @@ export const projects = [
         type: "game",
         content: "A funny game that is built entirely with vanilla Javascript with menu, scores, gameover,...",
         link: "https://rocketto.netlify.app"
-
-
     },
     
 
